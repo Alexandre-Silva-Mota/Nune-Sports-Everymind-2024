@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Adiciona o estilo para o botão de voltar */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+            z-index: 1;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button::before {
+            content: '←'; /* Adiciona a seta */
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gerenciamento de Produtos</h1>
+    </header>
+    <main>
+        <!-- Botão de voltar -->
+        
+
+        <form id="product-form">
+            <input type="hidden" id="product-id">
+            
+            <label for="name">Nome:</label>
+            <input type="text" id="name" placeholder="Ex: Produto A" required>
+
+            <label for="code">Código <span class="info-icon" onclick="toggleTooltip()">?</span></label>
+            <div class="tooltip">Coloque no mínimo 4 caracteres numéricos</div>
+            <input type="text" id="code" placeholder="Ex: 1234" required>
+            <div id="code-error" style="color: red; display: none;"></div>
+
+            <label for="description">Descrição:</label>
+            <textarea id="description" placeholder="Descrição do produto"></textarea>
+
+            <label for="price">Preço:</label>
+            <input type="number" id="price" step="0.01" placeholder="Ex: 0.99" required>
+            <div id="price-error" style="color: red; display: none;"></div>
+
+            <button type="submit">Salvar</button>
+        </form>
+
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Os produtos serão inseridos aqui -->
+            </tbody>
+        </table>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
